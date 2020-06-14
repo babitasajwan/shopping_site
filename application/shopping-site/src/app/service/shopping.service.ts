@@ -18,9 +18,12 @@ export class ShoppingService {
   }
 
   public addCartItem(item: IlistItems) {
-    this.cartDetails.push(item);
-    if (this.cartDetails.length) {
-      this.noOfItem.next(this.cartDetails.length);
+    const itemIndex = this.cartDetails.findIndex((data) => data.id === item.id);
+    if (itemIndex === -1) {
+      this.cartDetails.push(item);
+      if (this.cartDetails.length) {
+        this.noOfItem.next(this.cartDetails.length);
+      }
     }
   }
   public setCartDetails(itemlist: IlistItems[]) {
