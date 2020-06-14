@@ -4,4 +4,7 @@ export interface IlistItems {
     image: string;
     name: string;
     price: string;
+    quantity: string;
+    selectedQuantity?: number;
+    subtotal?: number;
 }

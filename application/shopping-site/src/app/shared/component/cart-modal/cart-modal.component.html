@@ -1,0 +1,42 @@
+
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Cart details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">
+    <table class="table" *ngIf="cartList && cartList.length else noItem">
+        <thead class="thead-light">
+            <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>No of item</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartList">
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <input type="number" min="1" [attr.max]="item.quantity" [(ngModel)]="item.selectedQuantity" (input)="getSubtotal(item)">
+            </td>
+            <td>{{item.subtotal}}</td>
+            <td>
+                <button class="btn btn-small btn-outline-primary" (click)="removeItem(item.id)">Remove
+                </button>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+        <ng-template #noItem>
+            <span>No item in cart</span>
+        </ng-template>
+        
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+</div>

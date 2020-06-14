@@ -1,78 +1,22 @@
-<div class="container">
+<div class="container bg-blue">
     <h2>List of Items</h2>
-    
-    <div class="row" *ngIf="shoppingList && shoppingList.length">
-      <div class="col-3 bg-success">.
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
+    <div class="row card-group">
+        <div class="col-4"  *ngFor="let list of shoppingList">
+          <div class="card text-center mb-4">
+            <div class="card-block">
+                <img class="card-img-top" [src]="list.image" alt="Card image" style="width:50%">
+                <h4 class="card-title">{{list.name}}</h4>
+                <p class="card-text">
+                    Description: {{list.description}}
+                </p>
+                <p class="card-text">
+                    Price: {{list.price}}
+                </p>
             </div>
-            <img class="card-img-bottom" src="img_avatar6.png" alt="Card image" style="width:100%">
-        </div>
-      </div>
-      <div class="col-3 bg-success">.
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
+            <div class="card-footer">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" (click)="addToCart(list)">Add to cart</button>
             </div>
-            <img class="card-img-bottom" src="img_avatar6.png" alt="Card image" style="width:100%">
         </div>
-      </div>
-      <div class="col-3 bg-success">.
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-            </div>
-            <img class="card-img-bottom" src="img_avatar6.png" alt="Card image" style="width:100%">
         </div>
-      </div>
     </div>
   </div>
-
-  <!-- <div class="container">
-    <h2>Card Deck</h2>
-    <p>The .card-deck class creates an <strong>equal height and width</strong> grid of cards. The layout will automatically adjust as you insert more cards.</p>
-    <p>In this example we have added extra content to the first card, to make it taller. Notice how the other cards follow.</p>
-    <p><strong>Note:</strong> The cards are displayed vertically on small screens (less than 576px):</p>
-    <div class="card-deck">
-      <div class="card bg-primary">
-        <div class="card-body text-center">
-          <p class="card-text">Some text inside the first card</p>
-          <p class="card-text">Some more text to increase the height</p>
-          <p class="card-text">Some more text to increase the height</p>
-          <p class="card-text">Some more text to increase the height</p>
-        </div>
-      </div>
-      <div class="card bg-warning">
-        <div class="card-body text-center">
-          <p class="card-text">Some text inside the second card</p>
-        </div>
-      </div>
-      <div class="card bg-success">
-        <div class="card-body text-center">
-          <p class="card-text">Some text inside the third card</p>
-        </div>
-      </div>
-      <div class="card bg-danger">
-        <div class="card-body text-center">
-          <p class="card-text">Some text inside the fourth card</p>
-        </div>
-      </div>  
-          <div class="card bg-danger">
-        <div class="card-body text-center">
-          <p class="card-text">Some text inside the fourth card</p>
-        </div>
-      </div> 
-          <div class="card bg-danger">
-        <div class="card-body text-center">
-          <p class="card-text">Some text inside the fourth card</p>
-        </div>
-      </div> 
-    </div>
-  </div> -->

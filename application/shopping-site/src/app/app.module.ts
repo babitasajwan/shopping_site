@@ -6,18 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartModalComponent } from './shared/component/cart-modal/cart-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CartModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
+    FormsModule
   ],
+  entryComponents: [CartModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

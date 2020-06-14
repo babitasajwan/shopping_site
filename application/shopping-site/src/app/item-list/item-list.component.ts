@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
-import { ShoppingService } from '../shared/service/shopping.service';
+
 import { IlistItems } from '../model/list.model';
+import { ShoppingService } from '../service/shopping.service';
 
 @Component({
   selector: 'app-item-list',
@@ -21,9 +22,12 @@ export class ItemListComponent implements OnInit, OnDestroy {
     this.shoppingSubscription$ = this.shoppingService.getShoppingItem().subscribe((list: any) => {
       if (list && list.data && list.data.length) {
         this.shoppingList = list.data;
-        console.log(this.shoppingList);
       }
     });
+  }
+
+  private addToCart(item: IlistItems): void {
+    this.shoppingService.addCartItem(item);
   }
 
   ngOnDestroy() {
