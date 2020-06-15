@@ -1,22 +1,28 @@
-<div class="container bg-blue">
+<div class="container bg-blue list-container" >
     <h2>List of Items</h2>
     <div class="row card-group">
-        <div class="col-4"  *ngFor="let list of shoppingList">
-          <div class="card text-center mb-4">
-            <div class="card-block">
-                <img class="card-img-top" [src]="list.image" alt="Card image" style="width:50%">
-                <h4 class="card-title">{{list.name}}</h4>
-                <p class="card-text">
-                    Description: {{list.description}}
-                </p>
-                <p class="card-text">
-                    Price: {{list.price}}
-                </p>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-outline-secondary my-2 my-sm-0" (click)="addToCart(list)">Add to cart</button>
-            </div>
-        </div>
-        </div>
+        <ng-container *ngIf="shoppingList && shoppingList.length else loader">
+                <div class="col-4"  *ngFor="let list of shoppingList">
+                        <div class="card text-center mb-4">
+                          <div class="card-block">
+                              <img class="card-img-top cart-image" [src]="list.image" alt="Card image">
+                              <h4 class="card-title">{{list.name}}</h4>
+                              <p class="card-text">
+                                  Description: {{list.description}}
+                              </p>
+                              <p class="card-text">
+                                  Price: {{list.price}}
+                              </p>
+                          </div>
+                          <div class="card-footer">
+                              <button class="btn btn-outline-secondary my-2 my-sm-0" (click)="addToCart(list)">Add to cart</button>
+                          </div>
+                      </div>
+                      </div>
+        </ng-container>
+        <ng-template #loader>
+            <div class="spinner-border"></div>
+        </ng-template>
+        
     </div>
   </div>

@@ -9,6 +9,7 @@ import { FooterComponent } from './shared/component/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartModalComponent } from './shared/component/cart-modal/cart-modal.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   entryComponents: [CartModalComponent],
   providers: [],

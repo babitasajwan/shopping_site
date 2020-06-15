@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   open() {
-    this.modalService.open(CartModalComponent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(CartModalComponent, {ariaLabelledBy: 'modal-basic-title', windowClass: 'cart-modal'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

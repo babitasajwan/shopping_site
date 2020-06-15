@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ShoppingService } from 'src/app/service/shopping.service';
 import { IlistItems } from 'src/app/model/list.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cart-modal',
   templateUrl: './cart-modal.component.html',
-  styleUrls: ['./cart-modal.component.scss']
+  styleUrls: ['./cart-modal.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CartModalComponent implements OnInit {
   private cartList: IlistItems[] = [];
   private totalPrice: number;
 
-  constructor(private shoppingService: ShoppingService) { }
+  constructor(private shoppingService: ShoppingService,
+              public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     const itemList: IlistItems[] = this.shoppingService.cartDetails;
@@ -39,6 +42,9 @@ export class CartModalComponent implements OnInit {
   getSubtotal(item: IlistItems) {
     item.subtotal = parseInt(item.price, 10) * item.selectedQuantity;
     this.getTotalPrice();
+  }
+  closeWindow() {
+    this.activeModal.dismiss();
   }
 
 }
