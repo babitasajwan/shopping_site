@@ -1,6 +1,21 @@
-# ShoppingSite
+# Prerequisites
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+Both the CLI and generated project have dependencies that require Node 8.9 or higher, together with NPM 5.5.1 or higher.
+
+# Installation
+
+## Install Globally
+
+`npm install -g @angular/cli`
+
+## Install Locally
+
+`npm install @angular/cli`
+
+To run a locally installed version of the angular-cli, you can call ng commands directly by adding the .bin folder within your local node_modules folder to your PATH. The node_modules and .bin folders are created in the directory where npm install @angular/cli was run upon completion of the install command.
+
+## Install node_module to run the project
+Do `npm install` in the folder path where the src folder exist.
 
 ## Development server
 
